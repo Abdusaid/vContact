@@ -1,1 +1,1 @@
-# vContact - SPA Web App
+# vContact - SPA Contact Web App
