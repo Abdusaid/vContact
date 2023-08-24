@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
+import MainLayout from "./layouts/MainLayout.vue"
 </script>
-
 <template>
-  <div class="text-3xl text-center">
-    Hello
+  <div>
+    <MainLayout />
   </div>
 </template>
 
