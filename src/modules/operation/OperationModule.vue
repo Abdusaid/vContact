@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
 import useModule from "./useModule"
-
 const { 
     firstName, 
     lastName, 
@@ -9,10 +7,9 @@ const {
     mail, 
     tag,
     buttonName,
-    saveContact, 
-    contactsStore 
+    saveContact 
   } = useModule()
-
+  
 const save = () => {
     saveContact(firstName, lastName, phone, mail, tag)
 }
@@ -24,7 +21,7 @@ const save = () => {
       <div class="grid md:grid-cols-2 md:gap-6">
         <div class="relative z-0 w-full mb-6 group">
           <input
-            v-model="firstName"
+            v-model.trim="firstName"
             type="text"
             name="floating_first_name"
             id="floating_first_name"
@@ -40,7 +37,7 @@ const save = () => {
         </div>
         <div class="relative z-0 w-full mb-6 group">
           <input
-            v-model="lastName"
+            v-model.trim="lastName"
             type="text"
             name="floating_last_name"
             id="floating_last_name"
@@ -59,6 +56,7 @@ const save = () => {
       <div class="grid md:grid-cols-2 md:gap-6">
         <div class="relative z-0 w-full mb-6 group">
           <input
+            v-maska="'(+###) ## ###-##-##'"
             v-model="phone"
             type="tel"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

@@ -38,15 +38,14 @@ export default function useModule() {
                 mail,
                 tag
             })
-            console.log('edit')
         }else {
             contactsStore.addNewContact(
                 {
-                    firstName,
-                    lastName,
-                    phone,
-                    mail,
-                    tag
+                    firstName :firstName.value,
+                    lastName: lastName.value,
+                    phone: phone.value,
+                    mail: mail.value,
+                    tag: tag.value
                 }
             )
         }

@@ -1,11 +1,26 @@
 <script setup lang="ts">
+import {RouterLink} from "vue-router"
+import {ref,watch} from "vue"
+import {useContactsStore} from "../stores/contacts"
 import {
   ContactsMenuIcon,
   FavoritesMenuIcon,
   SignOutMenuIcon,
   AddNewMenuIcon
 } from "../assets/svg";
-import {RouterLink} from "vue-router"
+
+const contactsStore = useContactsStore()
+const favContacts = ref()
+
+watch(contactsStore.mockContacts,() => {
+  favContacts.value = contactsStore.mockContacts.filter((contact) => {
+  return contact.fav == true
+}).length
+})
+favContacts.value = contactsStore.mockContacts.filter((contact) => {
+  return contact.fav == true
+}).length
+
 </script>
 <template>
   <aside
@@ -47,10 +62,9 @@ import {RouterLink} from "vue-router"
               class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
             />
             <span class="flex-1 ml-3 whitespace-nowrap">Favorites</span>
-            <span
-              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
-              >3</span
-            >
+            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">
+              {{ favContacts }}
+            </span>
           </RouterLink>
         </li>
 

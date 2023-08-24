@@ -6,5 +6,6 @@ export interface IContacts {
   lastName: string
   phone: string
   mail?: string
-  tag: TTag
+  tag: TTag,
+  fav: boolean
 }

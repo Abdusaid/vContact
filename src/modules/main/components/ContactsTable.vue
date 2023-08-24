@@ -4,6 +4,7 @@ import {ref, watch} from "vue"
 import {
   ContactIcon,
   SearchIcon,
+  FavIcon
 } from "../../../assets/svg.tsx";
 
 const props = defineProps<{
@@ -13,11 +14,15 @@ const props = defineProps<{
 }>()
 const emit = defineEmits<{
     (e:"redirectTo", contact):void,
-    (e:"deleteContact", index):void
+    (e:"deleteContact", index):void,
+    (e:"addFav", index):void
 }>()
 
 const editContact = (index) => {
   emit("redirectTo", index)
+}
+const addFav = (index) => {
+  emit("addFav", index)
 }
 const deleteContact = (index) => {
   emit("deleteContact", index)
@@ -25,16 +30,15 @@ const deleteContact = (index) => {
   filteredContacts.value = props.contactsStore?.mockContacts
 }
 
-
 const searchItem = ref<string>()
 const filteredContacts = ref()
 watch(searchItem, async (searchText) => {
     filteredContacts.value = props.contactsStore?.mockContacts.filter((item) => {
       return searchText != undefined || searchText == ' '
-        ? item.firstName.toLowerCase().includes(searchText as string) ||
-          item.lastName.toLowerCase().includes(searchText as string) ||
-          item.phone.includes(searchText as string) ||
-          item.tag.toLowerCase().includes(searchText as string) 
+        ? item.firstName?.toLowerCase().includes(searchText as string) ||
+          item.lastName?.toLowerCase().includes(searchText as string) ||
+          item.phone?.includes(searchText as string) ||
+          item.tag?.toLowerCase().includes(searchText as string) 
         : props.contactsStore?.mockContacts
     })
 },{ immediate: true })
@@ -69,6 +73,7 @@ watch(searchItem, async (searchText) => {
           <th scope="col" class="px-6 py-3">Full Name</th>
           <th scope="col" class="px-6 py-3">Email</th>
           <th scope="col" class="px-6 py-3">Tag</th>
+          <th scope="col" class="px-6 py-3">Fav</th>
           <th scope="col" class="px-6 py-3">Action</th>
         </tr>
       </thead>
@@ -101,17 +106,34 @@ watch(searchItem, async (searchText) => {
                 {{contact.tag}}
             </span>
           </td>
+          <td class="px-6 py-4">
+            <button
+            data-tooltip-target="tooltip-default"
+              @click="addFav(contact.index)"
+              >
+                <component 
+                  :is="FavIcon" 
+                  class="w-4 h-4"
+                  :class="[contact.fav ? 'fill-red-600' : 'fill-black']" 
+                />
+                <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                  Add to Favorites
+                  <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+            </button>
+          </td>
           <td class="px-6 py-4 whitespace-nowrap">
             <button
               @click="editContact(contact.index)"
-              class="font-medium pr-8 text-blue-600 dark:text-blue-500 hover:underline"
+              class="font-medium pr-8 text-blue-600 hover:underline"
               >Edit
             </button>
             <button
-              class="font-medium text-red-600 dark:text-blue-500 hover:underline"
+              class="font-medium pr-8 text-red-600 hover:underline"
               @click="deleteContact(contact.index)"
               >Delete
             </button>
+            
           </td>
         </tr>
       </tbody>

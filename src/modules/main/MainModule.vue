@@ -5,6 +5,7 @@ import useModule from "./useModule";
 const {
     redirectTo, 
     deleteContact,
+    addFav,
     contactsStore
 } = useModule()
 </script>
@@ -12,6 +13,7 @@ const {
     <div>
         <ContactsTable 
             :contactsStore="contactsStore"
+            @addFav="addFav"
             @redirectTo="redirectTo" 
             @deleteContact="deleteContact" />
     </div>
