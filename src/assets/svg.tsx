@@ -3,9 +3,7 @@ export const LogoIcon = () => (
     fill="#000000"
     viewBox="0 0 64 64"
     version="1.1"
-    xml:space="preserve"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <g id="_x32_5_attachment" />
     <g id="_x32_4_office" />
@@ -46,7 +44,6 @@ export const ContactIcon = () => (
   <svg
     viewBox="0 0 72 72"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
     aria-hidden="true"
     role="img"
     class="iconify iconify--fxemoji"
@@ -199,9 +196,7 @@ export const FavIcon = () => (
     version="1.1"
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 455 455"
-    xml:space="preserve"
   >
     <path
       d="M326.632,10.346c-38.733,0-74.991,17.537-99.132,46.92c-24.141-29.384-60.398-46.92-99.132-46.92

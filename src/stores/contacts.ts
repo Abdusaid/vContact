@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
-import type { IContacts } from "@/shared/types";
+import type { IContacts } from "../shared/types";
 
 export const useContactsStore = defineStore("contacts", () => {
   const mockContacts = reactive<IContacts[]>([

@@ -1,4 +1,4 @@
-import FavoriteModule from "@/modules/favorite/FavoriteModule.vue"
+import FavoriteModule from "../../modules/favorite/FavoriteModule.vue"
 
 export {
     FavoriteModule,

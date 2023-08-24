@@ -1,4 +1,4 @@
-import MainModule from "@/modules/main/MainModule.vue"
+import MainModule from "../../modules/main/MainModule.vue"
 
 export {
     MainModule,
