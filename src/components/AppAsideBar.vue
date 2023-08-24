@@ -10,6 +10,7 @@ import {
 } from "../assets/svg";
 
 const contactsStore = useContactsStore()
+
 const favContacts = ref()
 
 watch(contactsStore.mockContacts,() => {
