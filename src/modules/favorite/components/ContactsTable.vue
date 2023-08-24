@@ -3,7 +3,7 @@ import type { IContacts } from "../../../shared/types";
 import {ref} from "vue"
 import {
   ContactIcon,
-} from "../../../assets/svg.tsx";
+} from "../../../assets/svg";
 
 const props = defineProps<{
   contactsStore:{
