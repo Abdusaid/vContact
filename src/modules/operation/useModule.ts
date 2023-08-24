@@ -18,18 +18,18 @@ export default function useModule() {
     
     onMounted(() => {
         if(routeParamsId.value){
-            firstName.value = contactsStore.mockContacts[route.params.id as string].firstName
-            lastName.value = contactsStore.mockContacts[route.params.id as string].lastName
-            phone.value = contactsStore.mockContacts[route.params.id as string].phone
-            mail.value = contactsStore.mockContacts[route.params.id as string].mail
-            tag.value = contactsStore.mockContacts[route.params.id as string].tag
+            firstName.value = contactsStore.mockContacts[route.params.id as string|any].firstName
+            lastName.value = contactsStore.mockContacts[route.params.id as string|any].lastName
+            phone.value = contactsStore.mockContacts[route.params.id as string|any].phone
+            mail.value = contactsStore.mockContacts[route.params.id as string|any].mail
+            tag.value = contactsStore.mockContacts[route.params.id as string|any].tag
         }
     })
 
     const buttonName = computed(() => {
         return routeParamsId.value ? "Edit & Save" : "Save"
     })
-    const saveContact = (firstName, lastName, phone, mail, tag) => {
+    const saveContact = (firstName:any, lastName:any, phone:any, mail:any, tag:any) => {
         if(routeParamsId.value){
             contactsStore.editContact(routeParamsId.value, {
                 firstName,

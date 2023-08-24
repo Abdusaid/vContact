@@ -1,0 +1,1 @@
+import{o as r,c as s}from"./index-05ca12bc.js";const a=(t,e)=>{const c=t.__vccOpts||t;for(const[o,n]of e)c[o]=n;return c},_={},l={class:"text-3xl text-center m-8 text-gray-300"};function f(t,e){return r(),s("div",l," Successfully Signed Out ")}const u=a(_,[["render",f]]);export{u as default};

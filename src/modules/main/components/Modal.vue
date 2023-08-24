@@ -4,7 +4,7 @@ const props = defineProps<{
     index: number|undefined 
 }>()
 const emit = defineEmits<{
-    (e:"deleteContact", index):void
+    (e:"deleteContact", index:number|undefined):void
 }>()
 
 const deleteContact = ()=> {

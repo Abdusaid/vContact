@@ -5,7 +5,7 @@ import {
   ContactIcon,
   SearchIcon,
   FavIcon
-} from "../../../assets/svg.tsx";
+} from "../../../assets/svg";
 
 const props = defineProps<{
   contactsStore:{
@@ -13,18 +13,18 @@ const props = defineProps<{
   }
 }>()
 const emit = defineEmits<{
-    (e:"redirectTo", contact):void,
-    (e:"deleteContact", index):void,
-    (e:"addFav", index):void
+    (e:"redirectTo", contact:any):void,
+    (e:"deleteContact", index:number):void,
+    (e:"addFav", index:number):void
 }>()
 
-const editContact = (index) => {
+const editContact = (index:number|any) => {
   emit("redirectTo", index)
 }
-const addFav = (index) => {
+const addFav = (index:number|any) => {
   emit("addFav", index)
 }
-const deleteContact = (index) => {
+const deleteContact = (index:number|any) => {
   emit("deleteContact", index)
   searchItem.value = ''
   filteredContacts.value = props.contactsStore?.mockContacts

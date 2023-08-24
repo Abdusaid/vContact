@@ -5,13 +5,13 @@ export default function useModule() {
     const router = useRouter()
     const contactsStore = useContactsStore()
     
-    const redirectTo = (id) => {
+    const redirectTo = (id:number|any) => {
         router.push(`/edit/${id}`)
     }
-    const deleteContact = (index) => {
+    const deleteContact = (index:number|any) => {
         contactsStore.deleteContact(index)
     }
-    const addFav = (index) => {
+    const addFav = (index:number|any) => {
         contactsStore.addFav(index)
     }
     return {

@@ -69,14 +69,14 @@ export const useContactsStore = defineStore("contacts", () => {
     },
   ]);
 
-  const addNewContact = (contact) => {
+  const addNewContact = (contact:any) => {
     mockContacts.push({
       index: mockContacts.length,
       fav: false,
       ...contact,
     });
   };
-  const addFav = (index) => {
+  const addFav = (index:number|any) => {
     const indexOfItem = mockContacts.indexOf(mockContacts[index]);
     if (mockContacts[indexOfItem].fav) {
       mockContacts[indexOfItem].fav = false;
@@ -85,11 +85,11 @@ export const useContactsStore = defineStore("contacts", () => {
     }
   };
 
-  const deleteContact = (index) => {
+  const deleteContact = (index:number|any) => {
     const indexOfItem = mockContacts.indexOf(mockContacts[index]);
     mockContacts.splice(indexOfItem, 1);
   };
-  const editContact = (index, contactInfo) => {
+  const editContact = (index :number|any, contactInfo :any) => {
     mockContacts[index].firstName = contactInfo.firstName;
     mockContacts[index].lastName = contactInfo.lastName;
     mockContacts[index].phone = contactInfo.phone;
